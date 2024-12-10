@@ -2,7 +2,6 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-import json
 
 load_dotenv()
 
@@ -12,7 +11,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '62.84.122.58', 'kittygrammm.ddns.net'] 
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
